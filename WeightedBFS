@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector <pair<int, int> >g[100000+7] ;   // vector for maintaining adjacency list explained above.
+int dist[100000+7]; // to determine the level of each node
+bool vis[100000+7]; //mark the node if visited
+void bfs (int start)
+{
+    deque <int > Q;     // double ended queue
+    Q.push_back( start);
+    dist[ start ] = 0;
+    while( !Q.empty ())
+    {
+        int v = Q.front( );
+        Q.pop_front();
+        for( int i = 0 ; i < g[v].size(); i++)
+        {
+            /* if dist of neighbour of v from start node is greater than sum of dist of v from start node and edge weight between v and its neighbour (dist between v and its neighbour of v) ,then change it */
+            if(dist[ g[ v ][ i ].first ] > dist[ v ] + g[ v ][ i ].second )
+            {
+
+                dist[ g[ v ][ i ].first ] = dist[ v ] + g[ v ][ i ].second;
+                /*if edge weight between v and its neighbour is 0 then push it to front of
+                double ended queue else push it to back*/
+                if(g[ v ][ i ].second == 0)
+                {
+                    Q.push_front( g[ v ][ i ].first);
+                }
+                else
+                {
+                    Q.push_back( g[ v ][ i ].first);
+
+                }
+            }
+        }
+
+    }
+}
+int main()
+{
+    ios::sync_with_stdio(0), cin.tie(0);
+    int n,m;
+    cin >> n >> m ;
+    for(int i = 0; i < m; i++)
+    {
+        int v, u, w;
+        cin >> v >> u >>w;
+        v--, u--;
+        g[v].push_back(make_pair(u, w));
+        g[u].push_back(make_pair(v, w));
+    }
+    bfs(0);
+}
