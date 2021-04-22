@@ -1,3 +1,5 @@
+
+ #define int64 long long
 const int bignumlen=2200; //高精度的位数
 const int Blen=8; //压几位
 const int64 base=100000000; //对应的基数
