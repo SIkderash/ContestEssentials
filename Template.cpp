@@ -1,4 +1,4 @@
-                                                            //BISMILLAHIR RAHMANIR RAHIM
+                                            ///BISMILLAHIR RAHMANIR RAHIM
 
     #pragma comment(linker, "/stack:200000000")
     #pragma GCC optimize("Ofast,no-stack-protector")
@@ -153,9 +153,9 @@
     //vector<pair<ll,ll>>factors;
     //void factorise(int n){for(auto x: prime){if(n%x==0){int cnt = 0;while(n%x==0){n/=x;cnt++;}factors.pb({x,cnt});}}if(n>1) factors.pb({n,1});}
     ///code start here
-    
-    int main(){
 
+    int main(){
+        
     }
 /*
 
