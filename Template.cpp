@@ -149,13 +149,13 @@
     //void sieve(){memset(mark,true,sizeof(mark));for(ll i=3;i<=(ll)sqrt(mx);i+=2){if(mark[i]){for(ll j=i*i;j<=mx;j+=2*i) mark[j]=false;}}prime.push_back(2);for(ll i=3;i<=mx;i+=2) if(mark[i]) prime.push_back(i);}
     //ll phi(ll n){ll result = n;for (ll i=2; i*i<=n; i++){if (n%i==0){while (n%i==0)n/=i;result-=result/i;}}if(n>1)result-=result/n;return result;}
     //ll CompositeModInverse(ll a, ll m){return BigMod(a,phi(m)-1,m);}
-    //ll chinese(vector<ll>pi, vector<ll>ai, ll n){vector<ll>p1i;for(auto x: pi){p1i.pb(CompositeModInverse(x,n/x));}ll ans = 0;for(int i=0; i<pi.size(); i++){ans += ai[i]*pi[i]*p1i[i];}return ans;}
+    //ll chinese(vector<ll>pi, vector<ll>ai, ll n){vector<ll>p1i;for(auto x: pi){p1i.pb(CompositeModInverse(n/x,x));}ll ans = 0;for(int i=0; i<pi.size(); i++){ans = (ans+ai[i]*(n/pi[i])*p1i[i]);}return (ans%n+n)%n;}
     //vector<pair<ll,ll>>factors;
-    //void factorise(int n){for(auto x: prime){if(n%x==0){int cnt = 0;while(n%x==0){n/=x;cnt++;}factors.pb({x,cnt});}}if(n>1) factors.pb({n,1});}
+    //void factorise(ll n){for(auto x: prime){if(n%x==0){int cnt = 0;while(n%x==0){n/=x;cnt++;}factors.pb({x,cnt});}}if(n>1) factors.pb({n,1});}
     ///code start here
 
     int main(){
-        
+        fast;
     }
 /*
 
