@@ -1,9 +1,11 @@
+                                                            //BISMILLAHIR RAHMANIR RAHIM
+
     #pragma comment(linker, "/stack:200000000")
     #pragma GCC optimize("Ofast,no-stack-protector")
     #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
     #pragma GCC optimize("unroll-loops")
-     
-     
+
+
     # include <bits/stdc++.h>
     # include <iostream>
     # include <cmath>
@@ -25,7 +27,7 @@
     //#include<ext/pb_ds/tree_policy.hpp>
     //using namespace __gnu_pbds;
     using namespace std;
-     
+
     #define F               first
     #define S               second
     #define pb              push_back
@@ -67,7 +69,7 @@
     #define ump             unordered_map
     #define use             unordered_set
     #define pq              priority_queue
-     
+
     #define nl                  '\n'
     #define pf                  printf
     #define sfc(a)              scanf("%c",&a)
@@ -88,7 +90,7 @@
     #define sfull2(a,b)         scanf("%llu %llu",&a,&b)
     #define sfull3(a,b,c)       scanf("%llu %llu %llu",&a,&b,&c)
     #define sfull4(a,b,c,d)     scanf("%llu %llu %llu %llu",&a,&b,&c,&d)
-     
+
     #define ang(a, b, c)        acos((b*b+c*c-a*a)/(2.0*b*c))
     #define dist(x1,y1,x2,y2)   sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))
     #define rev(v)              reverse(v.begin(),v.end())
@@ -107,14 +109,14 @@
     #define loop(i,n)           for(int i=0;i<n;i++)
     #define loop1(i,n)          for(int i=1;i<=n;i++)
     #define case_print          printf("Case %d: ",cs)
-     
+
     template <class T1> void deb(T1 e1){cout<<e1<<endl;}
     template <class T1,class T2> void deb(T1 e1,T2 e2){cout<<e1<<" "<<e2<<endl;}
     template <class T1,class T2,class T3> void deb(T1 e1,T2 e2,T3 e3){cout<<e1<<" "<<e2<<" "<<e3<<endl;}
     template <class T1,class T2,class T3,class T4> void deb(T1 e1,T2 e2,T3 e3,T4 e4){cout<<e1<<" "<<e2<<" "<<e3<<" "<<e4<<endl;}
     template <class T1,class T2,class T3,class T4,class T5> void deb(T1 e1,T2 e2,T3 e3,T4 e4,T5 e5){cout<<e1<<" "<<e2<<" "<<e3<<" "<<e4<<" "<<e5<<endl;}
     template <class T1,class T2,class T3,class T4,class T5,class T6> void deb(T1 e1,T2 e2,T3 e3,T4 e4,T5 e5,T6 e6){cout<<e1<<" "<<e2<<" "<<e3<<" "<<e4<<" "<<e5<<" "<<e6<<endl;}
-     
+
     template <typename T> T gcd(T a, T b){while (b){T t = a % b;a = b;b = t;}return a;}
     template <typename T> T lcm(T a, T b){return a / gcd(a, b) * b;}
     template <typename T> T gcd(T a, T b, T c){return gcd(gcd(a, b), c);}
@@ -131,10 +133,10 @@
     //template <typename T> using ordered_set2 = tree<pair <T, string>, null_type, less<pair <T, string>>, rb_tree_tag, tree_order_statistics_node_update>;
     //ll histogram(ll arr[],ll n){ll top,i=0,sum=0,max_area=0;stack<ll>st;st.push(0);while(i<n){if(st.empty()||arr[st.top()]<=arr[i]) st.push(i++);else{top=st.top();st.pop();if(st.empty())sum=arr[top]*i;else sum=arr[top]*(i-st.top()-1);max_area=max(sum,max_area);}}while(!st.empty()){top=st.top();st.pop();if(st.empty()) sum=arr[top]*i;else sum=arr[top]*(i-st.top()-1);max_area=max(sum,max_area);}return max_area;}
     //ll ext_gcd(ll a,ll b,ll *x,ll *y){if(a==0){*x=0;*y=1;return b;}ll x1,y1;ll gcd = ext_gcd(b%a,a,&x1,&y1);*x=y1-(b/a)*x1;*y=x1;return gcd;}
-     
+
     const int fx[]={+0,+0,+1,-1,-1,+1,-1,+1};
     const int fy[]={-1,+1,+0,+0,+1,+1,-1,-1};
-    const int mx        = 1e5+10;
+    const int mx        = 1e6+10;
     const int inf       = 0x3f3f3f3f;
     const int mod       = 1e9+7;
     const ld PI         = 2*acos(0.0);
@@ -145,12 +147,16 @@
     //ll nCr(ll n,ll r){return (fact[n]*ModInverse(((ll)fact[n-r]*(ll)fact[r])%mod,(ll)mod))%mod;}
     //bool mark[mx];vector<ll>prime;
     //void sieve(){memset(mark,true,sizeof(mark));for(ll i=3;i<=(ll)sqrt(mx);i+=2){if(mark[i]){for(ll j=i*i;j<=mx;j+=2*i) mark[j]=false;}}prime.push_back(2);for(ll i=3;i<=mx;i+=2) if(mark[i]) prime.push_back(i);}
+    //ll phi(ll n){ll result = n;for (ll i=2; i*i<=n; i++){if (n%i==0){while (n%i==0)n/=i;result-=result/i;}}if(n>1)result-=result/n;return result;}
+    //ll CompositeModInverse(ll a, ll m){return BigMod(a,phi(m)-1,m);}
+    //ll chinese(vector<ll>pi, vector<ll>ai, ll n){vector<ll>p1i;for(auto x: pi){p1i.pb(CompositeModInverse(x,n/x));}ll ans = 0;for(int i=0; i<pi.size(); i++){ans += ai[i]*pi[i]*p1i[i];}return ans;}
+    //vector<pair<ll,ll>>factors;
+    //void factorise(int n){for(auto x: prime){if(n%x==0){int cnt = 0;while(n%x==0){n/=x;cnt++;}factors.pb({x,cnt});}}if(n>1) factors.pb({n,1});}
     ///code start here
-   
+    
     int main(){
-    //    freopen("Input.txt","r",stdin); freopen("Output.txt","w",stdout);
-       
+
     }
-    /*
-     
-    */
+/*
+
+*/
