@@ -1,27 +1,5 @@
-                                            ///BISMILLAHIR RAHMANIR RAHIM
+# include <bits/stdc++.h>
 
-    #pragma comment(linker, "/stack:200000000")
-    #pragma GCC optimize("Ofast,no-stack-protector")
-    #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
-    #pragma GCC optimize("unroll-loops")
-
-
-    # include <bits/stdc++.h>
-    # include <iostream>
-    # include <cmath>
-    # include <algorithm>
-    # include <stdio.h>
-    # include <cstring>
-    # include <string>
-    # include <cstdlib>
-    # include <vector>
-    # include <bitset>
-    # include <map>
-    # include <queue>
-    # include <ctime>
-    # include <stack>
-    # include <set>
-    # include <list>
     //#include <ext/pb_ds/detail/standard_policies.hpp>
     //#include<ext/pb_ds/assoc_container.hpp>
     //#include<ext/pb_ds/tree_policy.hpp>
@@ -108,7 +86,7 @@
     #define forstl(it,v)        for(__typeof(v.begin()) it=v.begin();it!=v.end();++it)
     #define loop(i,n)           for(int i=0;i<n;i++)
     #define loop1(i,n)          for(int i=1;i<=n;i++)
-    #define case_print          printf("Case %d: ",cs)
+    #define case_print          printf("Case %d: ",t+1)
 
     template <class T1> void deb(T1 e1){cout<<e1<<endl;}
     template <class T1,class T2> void deb(T1 e1,T2 e2){cout<<e1<<" "<<e2<<endl;}
@@ -138,25 +116,29 @@
     const int fy[]={-1,+1,+0,+0,+1,+1,-1,-1};
     const int mx        = 1e6+10;
     const int inf       = 0x3f3f3f3f;
-    const int mod       = 1e9+7;
+    ll mod       = 1e9+7;
     const ld PI         = 2*acos(0.0);
     const ld E          = 2.71828182845904523536;
     const ld eps        = 1e-9;
-    //ll fact[mx];
-    //void factorial(){fact[0]=1;loop1(i,mx-1) fact[i]=(fact[i-1]*i)%mod;}
+    //ll fact[40];
+    //void factorial(){fact[0]=1;loop1(i,30) fact[i]=(fact[i-1]*i)%mod;}
     //ll nCr(ll n,ll r){return (fact[n]*ModInverse(((ll)fact[n-r]*(ll)fact[r])%mod,(ll)mod))%mod;}
     //bool mark[mx];vector<ll>prime;
     //void sieve(){memset(mark,true,sizeof(mark));for(ll i=3;i<=(ll)sqrt(mx);i+=2){if(mark[i]){for(ll j=i*i;j<=mx;j+=2*i) mark[j]=false;}}prime.push_back(2);for(ll i=3;i<=mx;i+=2) if(mark[i]) prime.push_back(i);}
-    //ll phi(ll n){ll result = n;for (ll i=2; i*i<=n; i++){if (n%i==0){while (n%i==0)n/=i;result-=result/i;}}if(n>1)result-=result/n;return result;}
-    //ll CompositeModInverse(ll a, ll m){return BigMod(a,phi(m)-1,m);}
-    //ll chinese(vector<ll>pi, vector<ll>ai, ll n){vector<ll>p1i;for(auto x: pi){p1i.pb(CompositeModInverse(n/x,x));}ll ans = 0;for(int i=0; i<pi.size(); i++){ans = (ans+ai[i]*(n/pi[i])*p1i[i]);}return (ans%n+n)%n;}
-    //vector<pair<ll,ll>>factors;
-    //void factorise(ll n){for(auto x: prime){if(n%x==0){int cnt = 0;while(n%x==0){n/=x;cnt++;}factors.pb({x,cnt});}}if(n>1) factors.pb({n,1});}
     ///code start here
+    //vector<pair<int,int>>factors;
+    //void factorise(int n){for(auto p : prime){if(n%p==0){int cnt = 0;while(n%p==0){cnt++;n/=p;}factors.push_back({p, cnt});}}}
+    //ll singlephi(ll n) {ll result = n;for (ll i = 2; i * i <= n; i++) {if (n % i == 0) {while (n % i == 0)n /= i;result -= result / i;}}if (n > 1)result -= result / n;return result;}
+    //int phim[10000000+1];
+    //void allphi(){for(int i=1; i<=10000000; i++){phim[i] = i;}for(int i=2; i<=10000000; i++){if(phim[i]==i){for(int j=i; j<=10000000; j+=i){phim[j] -= phim[j]/i;}}}}
 
-    int main(){
-        fast;
+int main(){
+    //fast;
+    int t;
+    cin >> t;
+    while(t--){
+
     }
-/*
 
-*/
+}
+
