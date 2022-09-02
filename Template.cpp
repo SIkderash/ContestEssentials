@@ -120,8 +120,8 @@
     const ld PI         = 2*acos(0.0);
     const ld E          = 2.71828182845904523536;
     const ld eps        = 1e-9;
-    //ll fact[40];
-    //void factorial(){fact[0]=1;loop1(i,30) fact[i]=(fact[i-1]*i)%mod;}
+    //ll fact[mx+5];
+    //void factorial(){fact[0]=1;loop1(i,mx) fact[i]=(fact[i-1]*i)%mod;}
     //ll nCr(ll n,ll r){return (fact[n]*ModInverse(((ll)fact[n-r]*(ll)fact[r])%mod,(ll)mod))%mod;}
     //bool mark[mx];vector<ll>prime;
     //void sieve(){memset(mark,true,sizeof(mark));for(ll i=3;i<=(ll)sqrt(mx);i+=2){if(mark[i]){for(ll j=i*i;j<=mx;j+=2*i) mark[j]=false;}}prime.push_back(2);for(ll i=3;i<=mx;i+=2) if(mark[i]) prime.push_back(i);}
