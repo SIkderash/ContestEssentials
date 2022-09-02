@@ -15,7 +15,7 @@
     }
     void matrixExpo(ull a[][2], ull power){
         if(power==0 || power==1) return;
-        ull temp[2][2] = {{0,z},{1,z}};
+        ull temp[2][2] = {{a[0][1],a[0][1]},{a[1][0],a[1][1]}};
         matrixExpo(a,power/2);
         multiply(a,a);
         if(power&1) multiply(a,temp);
