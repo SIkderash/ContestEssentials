@@ -1,76 +1,82 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-vector <pair<int, long long int> >g[100000+7] ;
-bool vis[100000+7];
-int p[100000+7];
-long long int dist[100000+7];
-typedef pair<long long int, int> ip;
-void bfs (int start)
-{
 
-    priority_queue< ip, vector <ip> , greater<ip> > pq;
-    dist[ start ] = 0;
-    pq.push(make_pair(0, start));
-    while( !pq.empty ())
-    {
-       int u = pq.top().second;
-       pq.pop();
-       if(vis[u]==1){
-        continue;
-       }
-       vis[u]=1;
-       //cout << "pop "<<v+1<<"\n";
-       //cout <<g[v].size()<<"\n";
-       //cout << dist[ v ] <<"\n";
-        for( auto i = 0; i < g[u].size(); ++i)
-        {
-            //cout << g[v][i].first+1<<" "<<dist[ g[ v ][ i ].first ]<<"\n";
+#define ll long long int
+#define pi pair<int,ll>
+#define pb push_back
+typedef pair<ll,int> ip;
 
-            if(dist[ g[ u ][ i ].first ] > dist[ u ] + g[ u ][ i ].second )
-            {
 
-                dist[ g[ u ][ i ].first ] = dist[ u ] + g[ u ][ i ].second;
-                p[g[ u ][ i ].first ] = u;
-                //cout << "Changed " <<g[v][i].first+1<<" "<<dist[ g[ v ][ i ].first ]<<"\n";
-                pq.push(make_pair(dist[ g[ u ][ i ].first ], g[ u ][ i ].first ));
+vector<ll>ans;
+vector<int>parent;
 
+
+void dijkstra(vector<pair<int,ll> >g[], int n, int s){
+    vector<bool>vis(n,0);
+    vector<ll> dis(n,1000000000000);
+    vector<int> p(n,-1);
+    priority_queue<ip, vector<ip>, greater<ip> > q;
+    q.push({0,s});
+    dis[s] = 0;
+
+    while(!q.empty()){
+        int u = q.top().second;
+        q.pop();
+        if(vis[u]) continue;
+        vis[u] = 1;
+        for(auto x : g[u]){
+            int v = x.first;
+            ll w = x.second;
+            if(dis[v]> dis[u] + w){
+                dis[v] = dis[u] + w;
+                p[v] = u;
+                q.push({dis[v], v});
             }
         }
+    }
+    ans = dis;
+    parent = p;
+}
 
+void printPath(int d){
+    if(ans[d-1]==1000000000000){
+        cout << -1 << endl;
+    }
+    else{
+        int cur = d;
+        stack<int>path;
+        path.push(cur);
+        while(parent[cur]!=-1){
+            cur = parent[cur];
+            path.push(cur);
+        }
+        while(!path.empty()){
+            cout << path.top()+1 << " ";
+            path.pop();
+        }
     }
 }
-int main()
-{
-    ios::sync_with_stdio(0), cin.tie(0);
-    int n,m;
-    cin >> n >> m ;
-    for(int i = 0; i < m; i++)
-    {
-        int v, u, w;
-        cin >> v >> u >>w;
-        v--, u--;
-        g[v].push_back(make_pair(u, w));
-        g[u].push_back(make_pair(v, w));
+
+int main(){
+    int t = 1;
+    //cin >> t;
+    for(int cs=0; cs<t; cs++){
+        int n, m;
+        cin >> n >> m;
+        vector<pi>g[n];
+        for(int i=0; i<m; i++){
+            int x, y;
+            ll z;
+            cin >> x >> y >> z;
+            x--;
+            y--;
+            g[x].pb({y,z});
+            g[y].pb({x,z});
+        }
+        int s = 0;
+
+        dijkstra(g,n,s);
+
+        printPath(n-1);
     }
-    for(int i=0; i<n; i++){
-            dist[i]=99999999999999;
-            p[i]=-1;
-    }
-    bfs(0);
-    if(vis[n-1]==0){
-        cout <<"-1";
-        return 0;
-    }
-    int l = n-1;
-    stack<int> a;
-    while(p[l]!=0){
-        a.push(p[l]);
-        l = p[l];
-    }
-    a.push(0);
-    while(!a.empty()){
-        cout <<a.top()+1<<" ";
-        a.pop();
-    }
-    cout <<n;
 }
