@@ -43,7 +43,7 @@ void printPath(int d){
         cout << -1 << endl;
     }
     else{
-        int cur = d;
+        int cur = d-1;
         stack<int>path;
         path.push(cur);
         while(parent[cur]!=-1){
@@ -77,6 +77,6 @@ int main(){
 
         dijkstra(g,n,s);
 
-        printPath(n-1);
+        printPath(n);
     }
 }
